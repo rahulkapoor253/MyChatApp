@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient"
+    tools:context="com.example.rahulkapoor.chatapp.MainActivity">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/iv_logo"
+        android:layout_marginBottom="60dp"
+        android:gravity="center"
+        android:text="WELCOME TO CHAT APP"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        />
+
+
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_centerInParent="true"
+        android:src="@mipmap/ic_launcher_round"
+        />
+
+    <Button
+        android:id="@+id/btn_have_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_logo"
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="Already have an account?"
+        android:textColor="@android:color/white"
+        />
+
+    <Button
+        android:id="@+id/create_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_have_account"
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="Create a new account"
+        android:textColor="@android:color/white"
+        />
+
+
+</RelativeLayout>
