@@ -105,7 +105,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 if (!task.isSuccessful()) {
                     //to hide the progress bar when registering user fails;
                     mProgressDialog.hide();
-                    Toast.makeText(RegisterActivity.this, "Fail to Signin", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Fail to Register User, Try again!", Toast.LENGTH_SHORT).show();
                 } else {
                     //to dismiss the progress bar once the task is successful;
                     mProgressDialog.dismiss();
