@@ -3,10 +3,13 @@ package com.example.rahulkapoor.chatapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -16,8 +19,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     FirebaseAuth firebaseAuth;
     FirebaseAuth.AuthStateListener authStateListener;
     private Intent intent;
-    private ImageView ivBack, ivLogout;
-    private TextView tvHeader;
+    private Toolbar mToolbar;
+    private ViewPager mViewPager;
+    private android.support.v4.view.PagerAdapter mPagerAdapter;
+    private TabLayout mTabLayout;
 
 
     @Override
@@ -50,13 +55,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      */
     private void init() {
 
-        ivBack = (ImageView) findViewById(R.id.iv_back);
-        ivLogout = (ImageView) findViewById(R.id.iv_logout);
-        tvHeader = (TextView) findViewById(R.id.tv_title);
-        tvHeader.setText("MY CHAT APP");
-        ivBack.setVisibility(View.GONE);
-        ivLogout.setVisibility(View.VISIBLE);
-        ivLogout.setOnClickListener(this);
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setTitle("CHAT APP");
+
+        //setting up view pager;
+        mViewPager = (ViewPager) findViewById(R.id.view_pager);
+        mPagerAdapter = new PagerAdapter(getSupportFragmentManager());
+        mViewPager.setAdapter(mPagerAdapter);
+        mTabLayout = (TabLayout) findViewById(R.id.tablayout);
+        mTabLayout.setupWithViewPager(mViewPager);
+
     }
 
     @Override
@@ -76,9 +85,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(final View v) {
         switch (v.getId()) {
-            case R.id.iv_logout:
-                logoutUser();
-                break;
             default:
                 break;
         }
@@ -103,5 +109,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(intent);
         finish();
 
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(final Menu menu) {
+        super.onCreateOptionsMenu(menu);
+
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(final MenuItem item) {
+        super.onOptionsItemSelected(item);
+
+        if (item.getItemId() == R.id.logout) {
+
+            logoutUser();
+        }
+
+        return true;
     }
 }

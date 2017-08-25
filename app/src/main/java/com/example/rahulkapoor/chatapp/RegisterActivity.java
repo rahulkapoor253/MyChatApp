@@ -5,12 +5,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,8 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText etPassword, etUserName, etEmail;
-    private ImageView ivBack;
-    private TextView tvHeader;
+    private Toolbar mToolbar;
     private Button btnRegister;
     private String mPassword, mUserName, mEmail;
     private FirebaseAuth mAuth;
@@ -47,11 +45,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         etUserName = (EditText) findViewById(R.id.et_user_name);
         etEmail = (EditText) findViewById(R.id.et_email);
         btnRegister = (Button) findViewById(R.id.btn_register);
-        ivBack = (ImageView) findViewById(R.id.iv_back);
-        tvHeader = (TextView) findViewById(R.id.tv_title);
-        ivBack.setOnClickListener(this);
+        //ivBack.setOnClickListener(this);
         btnRegister.setOnClickListener(this);
-        tvHeader.setText("REGISTER");
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setTitle("Register Activity");
 
 
     }
@@ -59,9 +57,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(final View v) {
         switch (v.getId()) {
-            case R.id.iv_back:
-                finish();
-                break;
             case R.id.btn_register:
                 if (validateData()) {
                     registerUser();
@@ -110,6 +105,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     //to dismiss the progress bar once the task is successful;
                     mProgressDialog.dismiss();
                     Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     finish();
                 }
