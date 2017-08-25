@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.rahulkapoor.chatapp.SettingsActivity">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/civ_userimage"
+        android:layout_marginTop="40dp"
+        android:layout_width="90dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="120dp"
+        android:src="@mipmap/ic_launcher_round"
+        />
+
+    <TextView
+        android:id="@+id/tv_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DISPLAY NAME"
+        android:textSize="24sp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:layout_below="@+id/civ_userimage"
+        />
+
+    <TextView
+        android:id="@+id/tv_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="this is my current status!"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:layout_below="@+id/tv_username"
+        />
+
+    <Button
+        android:id="@+id/btn_change_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:text="CHANGE PICTURE"
+        android:onClick="onClick"
+        android:background="@color/colorAccent"
+        android:textColor="@android:color/white"
+        android:padding="8dp"
+        android:layout_below="@+id/tv_status"
+        android:layout_marginTop="80dp"
+        />
+
+    <Button
+        android:id="@+id/btn_change_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:onClick="onClick"
+        android:layout_centerHorizontal="true"
+        android:text="CHANGE STATUS"
+        android:background="@color/colorAccent"
+        android:textColor="@android:color/white"
+        android:padding="8dp"
+        android:layout_below="@+id/btn_change_image"
+        android:layout_marginTop="20dp"
+        />
+
+
+</RelativeLayout>
