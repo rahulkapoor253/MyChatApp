@@ -128,6 +128,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (item.getItemId() == R.id.logout) {
 
             logoutUser();
+        } else if (item.getItemId() == R.id.settings) {
+            //fire intent to settings activity;
+            intent = new Intent(MainActivity.this, SettingsActivity.class);
+            startActivity(intent);
         }
 
         return true;

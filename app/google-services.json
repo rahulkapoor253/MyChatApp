@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "651374933035-kndbmtp4cincjfghknh10qgjoepcpcf8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rahulkapoor.chatapp",
+            "certificate_hash": "41cd71c4ead4bff217d13e9016d425098214862d"
+          }
+        },
+        {
           "client_id": "651374933035-3kj7vdhtiv26k6mdio44ruounf5o6evs.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "651374933035-3kj7vdhtiv26k6mdio44ruounf5o6evs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
