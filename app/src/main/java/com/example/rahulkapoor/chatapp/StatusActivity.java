@@ -32,11 +32,14 @@ public class StatusActivity extends AppCompatActivity {
 
         init();
 
-        mStatusRef = FirebaseDatabase.getInstance().getReference().child("Users");
+        etStatus.setText(getIntent().getStringExtra("status"));
+
         mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
         if (mCurrentUser != null) {
             userID = mCurrentUser.getUid();
         }
+        mStatusRef = FirebaseDatabase.getInstance().getReference().child("Users").child(userID);
+
 
         mProgressDialog = new ProgressDialog(StatusActivity.this);
 
@@ -88,5 +91,11 @@ public class StatusActivity extends AppCompatActivity {
         etStatus = (EditText) findViewById(R.id.et_status);
         btnSave = (Button) findViewById(R.id.btn_save);
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }
